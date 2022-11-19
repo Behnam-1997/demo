@@ -1,0 +1,15 @@
+{
+  "name": "demoqa-e2e-test",
+  "version": "1.0.0",
+  "description": "Test Automation Assignment from Gerimedica",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "behnam-rabizadeh",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^11.1.0",
+    "typescript": "^4.9.3"
+  }
+}
