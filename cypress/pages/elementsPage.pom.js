@@ -1,8 +1,7 @@
-import { isThisTypeNode } from "typescript";
-
 export class WebTablesPage {
   constructor() {
     this.addNewRecordBtn = cy.get("#addNewRecordButton");
+    this.table = cy.get(".rt-tr-group");
   }
   addItem(data) {
     this.addNewRecordBtn.click();
@@ -25,5 +24,13 @@ export class WebTablesPage {
       departmentInput: cy.get("#department"),
       submitBtn: cy.get("#submit"),
     };
+  }
+  getLastTableRow() {
+    this.table.each(($row, rowIndex) => {
+      cy.get($row).its("0.innerText");
+      if (value.trim() == "") {
+        return cy.get($row);
+      }
+    });
   }
 }
