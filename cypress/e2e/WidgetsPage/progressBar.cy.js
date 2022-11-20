@@ -1,6 +1,6 @@
 import { homePage, widgetsPage } from "../../pages/index";
 
-describe("Checking web tables tab", () => {
+describe("Checking progress bar tab", () => {
   beforeEach(() => {
     cy.visit("/");
   });

@@ -1,6 +1,6 @@
 import { homePage, formsPage } from "../../pages/index";
 
-describe("Checking web tables tab", () => {
+describe("Checking practice form tab", () => {
   beforeEach(() => {
     cy.visit("/");
   });
