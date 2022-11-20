@@ -4,12 +4,10 @@ describe("Checking broken links images tab", () => {
   beforeEach(() => {
     cy.visit("/");
   });
-  it("should check and verify broken image", () => {
+  it("Should check and verify broken image", () => {
     homePage.elementsCard().click();
-    elementsPage
-      .brokenLinksImagesBtn()
-      .click()
-      .should("have.text", "Broken Links - Images");
+    elementsPage.brokenLinksImagesBtn().click();
+
     cy.get('img[src="/images/Toolsqa_1.jpg"]')
       .should("not.be.visible")
       .and(($brokenimg) => {

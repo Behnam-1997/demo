@@ -6,7 +6,7 @@ describe("Checking web tables tab", () => {
   });
   it("Should verify user can enter new data into the table", () => {
     homePage.elementsCard().click();
-    elementsPage.webTableBtn().click().should("have.text", "Web Tables");
+    elementsPage.webTableBtn().click();
     let temp;
     cy.get(".rt-tr-group").each(($row, index) => {
       if (!$row[0].innerText.trim() == "") {
