@@ -23,15 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add("getAndClick", (element) => {
-  cy.get(element).click();
-});
-
-Cypress.Commands.add("containsAndClick", (text) => {
-  cy.contains(text).click();
-});
-
-Cypress.Commands.add("getAndType", (input, value) => {
-  cy.get(input).type(value);
-});
