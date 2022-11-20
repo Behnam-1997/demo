@@ -1,4 +1,5 @@
 export const webTableBtn = () => cy.get("#item-3");
+export const brokenLinksImagesBtn = () => cy.get("#item-6");
 export const addNewRecordBtn = () => cy.get("#addNewRecordButton");
 export const firstNameInput = () => cy.get("#firstName");
 export const lastNameInput = () => cy.get("#lastName");

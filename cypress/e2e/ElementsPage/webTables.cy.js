@@ -1,12 +1,12 @@
 import { elementsPage } from "../../pages/index";
 
-describe("Elements Page Check", () => {
+describe("Checking web tables tab", () => {
   beforeEach(() => {
     cy.visit("/");
   });
   it("Should verify user can enter new data into the table", () => {
     homePage.elementsCard().click();
-    elementsPage.webTableBtn().click();
+    elementsPage.webTableBtn().click().should("have.text", "Web Tables");
     let temp;
     cy.get(".rt-tr-group").each(($row, index) => {
       if (!$row[0].innerText.trim() == "") {
