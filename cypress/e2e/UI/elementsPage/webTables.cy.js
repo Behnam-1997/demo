@@ -1,4 +1,4 @@
-import { elementsPage } from "../../pages/index";
+import { homePage, elementsPage } from "../../../pages/index";
 
 describe("Checking web tables tab", () => {
   beforeEach(() => {

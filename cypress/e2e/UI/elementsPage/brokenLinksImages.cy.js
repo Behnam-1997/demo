@@ -1,4 +1,4 @@
-import { homePage, elementsPage } from "../../pages/index";
+import { homePage, elementsPage } from "../../../pages/index";
 
 describe("Checking broken links images tab", () => {
   beforeEach(() => {
