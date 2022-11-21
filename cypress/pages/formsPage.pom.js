@@ -1,5 +1,19 @@
-const commonData = {};
-
-const elements = {};
-
-export const visit = () => {};
+export const practiceFormBtn = () => cy.contains("Practice Form");
+export const firstNameInput = () => cy.get("#firstName");
+export const lastNameInput = () => cy.get("#lastName");
+export const userEmailInput = () => cy.get("#userEmail");
+export const maleGenderRadio = () => cy.get("input[value=Male]");
+export const femaleGenderRadio = () => cy.get("input[value=Female]");
+export const otherGenderRadio = () => cy.get("input[value=Other]");
+export const userNumberInput = () => cy.get("#userNumber");
+export const dateOfBirthInputInput = () => cy.get("#dateOfBirthInput");
+export const subjectsInput = () => cy.get("#subjectsContainer");
+export const sportsCheckbox = () => cy.get("#hobbies-checkbox-1");
+export const readingCheckbox = () => cy.get("#hobbies-checkbox-2");
+export const musicCheckbox = () => cy.get("#hobbies-checkbox-3");
+export const uploadPictureBtn = () => cy.get("#uploadPicture");
+export const currentAddressInput = () => cy.get("#currentAddress");
+export const stateSelectBox = () => cy.get("#state");
+export const citySelectBox = () => cy.get("#city");
+export const submitBtn = () => cy.get("#submit");
+export const closeModalBtn = () => cy.get("#closeLargeModal");
