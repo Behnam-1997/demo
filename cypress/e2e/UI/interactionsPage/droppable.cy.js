@@ -1,4 +1,4 @@
-import { homePage, interactionsPage } from "../../pages/index";
+import { homePage, interactionsPage } from "../../../pages/index";
 
 describe("Checking droppable tab", () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { homePage, widgetsPage } from "../../pages/index";
+import { homePage, widgetsPage } from "../../../pages/index";
 
 describe("Checking tool tips tab", () => {
   beforeEach(() => {

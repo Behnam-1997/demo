@@ -1,4 +1,4 @@
-import { homePage, formsPage } from "../../pages/index";
+import { homePage, formsPage } from "../../../pages/index";
 
 describe("Checking practice form tab", () => {
   beforeEach(() => {

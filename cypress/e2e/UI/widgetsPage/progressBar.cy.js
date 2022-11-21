@@ -1,4 +1,4 @@
-import { homePage, widgetsPage } from "../../pages/index";
+import { homePage, widgetsPage } from "../../../pages/index";
 
 describe("Checking progress bar tab", () => {
   beforeEach(() => {
