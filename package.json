@@ -9,9 +9,12 @@
   "author": "behnam-rabizadeh",
   "license": "ISC",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^14.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
     "cypress": "^11.1.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-wait-until": "^1.7.2",
+    "esbuild": "^0.15.16",
     "typescript": "^4.9.3"
   }
 }

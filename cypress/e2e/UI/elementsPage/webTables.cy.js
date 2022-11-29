@@ -1,94 +1,53 @@
-import { homePage, elementsPage } from "../../../pages/index";
+import {Given, Then, When, Before} from "@badeball/cypress-cucumber-preprocessor";
+import {elementsPage, homePage} from "../../../pages";
+let temp;
 
-describe("Checking web tables tab", () => {
-  beforeEach(() => {
+Given('The user visits demoqa.com for enter new data into the table', () => {
     cy.visit("/");
-  });
-  it("Should verify user can enter new data into the table", () => {
+})
+When('The user opens elements page for enter new data into the table', () => {
     homePage.elementsCard().click();
-    elementsPage.webTableBtn().click();
-    let temp;
-    cy.get(".rt-tr-group").each(($row, index) => {
-      if (!$row[0].innerText.trim() == "") {
-        temp = index;
-      } else {
-        return false;
-      }
+})
+When('The user opens web table tab', () => {
+    elementsPage.elements.webTableBtn().click();
+})
+When('The user checks how many rows the table have', () => {
+    elementsPage.elements.allTableRows().each(($row, index) => {
+        if (!$row[0].innerText.trim() == "") {
+            temp = index;
+        } else {
+            return false;
+        }
     });
-    elementsPage.addNewRecordBtn().click();
+})
+When('The user clicks on add button', () => {
+    elementsPage.elements.addNewRecordBtn().click();
+})
+Then('The user fill the requirements', () => {
     cy.fixture("webTableData.json").then((data) => {
-      elementsPage.firstNameInput().type(data.firstName);
-      elementsPage.lastNameInput().type(data.lastName);
-      elementsPage.userEmailInput().type(data.email);
-      elementsPage.ageInput().type(data.age);
-      elementsPage.salaryInput().type(data.salary);
-      elementsPage.departmentInput().type(data.department);
-      elementsPage.submitBtn().click();
-      cy.get(".rt-tr-group")
+        elementsPage.elements.firstNameInput().type(data.firstName);
+        elementsPage.elements.lastNameInput().type(data.lastName);
+        elementsPage.elements.userEmailInput().type(data.email);
+        elementsPage.elements.ageInput().type(data.age);
+        elementsPage.elements.salaryInput().type(data.salary);
+        elementsPage.elements.departmentInput().type(data.department);
+    })
+})
+When('The user clicks on submit button', () => {
+    elementsPage.elements.submitBtn().click()
+})
+Then('The user checks whether new row is created or not', () => {
+    elementsPage.elements.allTableRows()
         .eq(temp + 1)
         .within(() => {
-          cy.get(".rt-td").each(($columns, index) => {
-            if (!$columns[0].innerText.trim() == "") {
-              expect($columns[0].innerText).to.equal(
-                data[Object.keys(data)[index]]
-              );
-            }
-          });
-        });
-    });
-  });
-
-  it("Should verify user can edit the row in a table", () => {
-    homePage.elementsCard().click();
-    elementsPage.webTableBtn().click();
-    let exitCritria = false;
-    let temp;
-    cy.get(".rt-tr-group").each(($row, index) => {
-      cy.then(() => {
-        if (exitCritria) {
-          return false;
-        }
-        cy.wrap($row).within(() => {
-          cy.get(".rt-td")
-            .eq(0)
-            .then(($value) => {
-              if ($value[0].innerText == "Alden") {
-                temp = index;
-                exitCritria = true;
-                cy.wrap($row).within(() => {
-                  cy.get("[id^=edit-record]").click();
-                });
-              }
+            elementsPage.elements.aTableRow().each(($columns, index) => {
+                cy.fixture("webTableData.json").then((data) => {
+                    if (!$columns[0].innerText.trim() == "") {
+                        expect($columns[0].innerText).to.equal(
+                            data[Object.keys(data)[index]]
+                        );
+                    }
+                })
             });
         });
-      });
-    });
-    cy.fixture("webTableData.json").then((data) => {
-      data.firstName = "Gerimedica";
-      data.lastName = "BV";
-      elementsPage.firstNameInput().clear();
-      elementsPage.firstNameInput().type(data.firstName);
-      elementsPage.lastNameInput().clear();
-      elementsPage.lastNameInput().type(data.lastName);
-      elementsPage.submitBtn().click();
-      cy.get(".rt-tr-group")
-        .eq(temp)
-        .within(() => {
-          cy.get(".rt-td")
-            .eq(0)
-            .then(($columns) => {
-              expect($columns[0].innerText).to.equal(
-                data[Object.keys(data)[0]]
-              );
-            });
-          cy.get(".rt-td")
-            .eq(1)
-            .then(($columns) => {
-              expect($columns[0].innerText).to.equal(
-                data[Object.keys(data)[1]]
-              );
-            });
-        });
-    });
-  });
-});
+})
